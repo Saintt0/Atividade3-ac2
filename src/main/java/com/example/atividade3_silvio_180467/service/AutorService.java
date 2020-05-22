@@ -18,4 +18,8 @@ public class AutorService {
         return arepository.findAll();
     }
     
+    public void salvar(Autor autor){
+        arepository.save(autor);
+    }
+
 }
