@@ -32,6 +32,9 @@
             <th>Pseudônimo</th>
             <th>Nome Completo</th>
             <th>País de Origem</th>
+            <th>Detalhes</th>
+            <th>Remover</th>
+            <th>Editar</th>
         </tr>
         <tr th:each="autor : ${autores}">
             <td th:text="${autor.id}"></td>
@@ -39,6 +42,8 @@
             <td th:text="${autor.nome}"></td>
             <td th:text="${autor.po}"></td>
             <td> <a th:href="@{'/detalhesAutor/' +  ${autor.id}}">Detalhes</a></td>
+            <td><a th:href="@{'/removerAutor?id=' + ${autor.id}}">Remover</a></td>
+            <td><a th:href="@{'/editarAutor?id=' + ${autor.id}}">Editar</a></td>
         </tr>
     </table>
     <br>

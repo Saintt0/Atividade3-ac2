@@ -29,7 +29,7 @@ public class EditoraController {
     @GetMapping("/detalhesEditora/{id}")
     public ModelAndView getEditoraDetalhes(@PathVariable(name = "id") Integer id){
 
-        Editora editora = eservice.getEditoraById(id-1);
+        Editora editora = eservice.getEditoraById(id);
         ModelAndView mv = new ModelAndView("detalhesEditora");
         mv.addObject("editora", editora);
 

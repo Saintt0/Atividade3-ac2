@@ -26,4 +26,8 @@ public class AutorService {
         return arepository.findById(codigo).get();
     }
 
+    public void remover(Autor autor){
+        arepository.delete(autor);
+    }
+
 }

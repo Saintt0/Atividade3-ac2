@@ -59,14 +59,39 @@ public class AutorController {
     @GetMapping("/detalhesAutor/{codigo}")
     public ModelAndView getLivroDetalhes(@PathVariable(name = "codigo") Integer codigo){
 
-        Autor autor = aservice.getAutorById(codigo);
         ModelAndView mv = new ModelAndView("detalhesAutor");
-        mv.addObject("autor", autor);
-        List<Livro> livrosNaoAssociados = lservice.getLivros();
-        livrosNaoAssociados.removeAll(autor.getLivros());
-        mv.addObject("livros", livrosNaoAssociados);
+        mv.addObject("autor", aservice.getAutorById(codigo));
+        Autor autor = aservice.getAutorById(codigo);
+        List<Livro> livrosfora = lservice.getLivros();
+        livrosfora.removeAll(autor.getLivros());
+        mv.addObject("livros", livrosfora);
 
         return mv;
     }
+
+    @GetMapping("/editarAutor")
+    public ModelAndView editarAluno(@RequestParam Integer id){
+
+        ModelAndView mv = new ModelAndView("autorEdit");
+
+        Autor autor = aservice.getAutorById(id);
+        mv.addObject("autor", autor);
+        mv.addObject("livros", lservice.getLivros());
+
+        return mv;
+    }
+
+    @GetMapping("/removerAutor")
+    public String removerAutor(@RequestParam Integer id){
+
+        Autor autor = aservice.getAutorById(id);
+        aservice.remover(autor);
+
+        return "redirect:/autores";
+    }
+
+    
+
+
     
 }
