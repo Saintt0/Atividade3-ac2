@@ -9,9 +9,9 @@
     <table>
         <tr th:each="autor : ${autores}">
             <td th:text="${autor.id}"></td>
+            <td th:text="${autor.pseudonimo}"></td>
             <td th:text="${autor.nome}"></td>
             <td th:text="${autor.po}"></td>
-            <td th:text="${autor.pseudonimo}"></td>
         </tr>
     </table>
 </body>
