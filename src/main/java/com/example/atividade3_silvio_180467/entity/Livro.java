@@ -1,11 +1,16 @@
 package com.example.atividade3_silvio_180467.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Livro implements Serializable{
@@ -20,6 +25,14 @@ public class Livro implements Serializable{
     private String nome;
     private String genero;//apenas um genero por livro
     private int nump;//numero de páginas
+    
+    @ManyToMany
+    @JoinTable(name = "AUTOR_LIVRO", joinColumns = @JoinColumn(name = "LIVRO_ID"), inverseJoinColumns = @JoinColumn(name = "AUTOR_ID"))
+    private List<Autor> autores;
+
+    @ManyToOne
+    @JoinColumn(name = "ID_LIVRO")
+    private Editora editora;
 
     public int getId() {
         return id;
@@ -53,9 +66,28 @@ public class Livro implements Serializable{
         this.nump = nump;
     }
 
+    public List<Autor> getAutores() {
+        return autores;
+    }
+
+    public void setAutores(List<Autor> autores) {
+        this.autores = autores;
+    }
+
+    public Editora getEditora() {
+        return editora;
+    }
+
+    public void setEditora(Editora editora) {
+        this.editora = editora;
+    }
+
     @Override
     public String toString() {
-        return "Livro [genero=" + genero + ", id=" + id + ", nome=" + nome + ", nump=" + nump + "]";
+        return "Livro [editora=" + editora.getNome() + ", genero=" + genero + ", id=" + id + ", nome=" + nome + ", nump=" + nump
+                + "]";
     }
+
+    
     
 }

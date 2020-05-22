@@ -1,11 +1,13 @@
 package com.example.atividade3_silvio_180467.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Autor implements Serializable{
@@ -20,6 +22,9 @@ public class Autor implements Serializable{
     private String pseudonimo;
     private String nome;
     private String po;//País de Origem
+
+    @ManyToMany(mappedBy = "autores")
+    private List<Livro> livros;
 
     public int getId() {
         return id;
@@ -53,11 +58,18 @@ public class Autor implements Serializable{
         this.po = po;
     }
 
+
+    public List<Livro> getLivros() {
+        return livros;
+    }
+
+    public void setLivros(List<Livro> livros) {
+        this.livros = livros;
+    }
+
     @Override
     public String toString() {
         return "Autor [id=" + id + ", nome=" + nome + ", po=" + po + ", pseudonimo=" + pseudonimo + "]";
     }
-
-    
 
 }
