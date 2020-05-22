@@ -25,7 +25,7 @@ public class Editora implements Serializable{
     private int anof;//ano de fundação
 
     @OneToMany
-    @JoinColumn(name = "ID_LIVRO")
+    @JoinColumn(name = "ID_EDITORA")
     private List<Livro> livros;
 
     public int getId() {

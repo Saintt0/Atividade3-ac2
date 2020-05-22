@@ -31,7 +31,7 @@ public class Livro implements Serializable{
     private List<Autor> autores;
 
     @ManyToOne
-    @JoinColumn(name = "ID_LIVRO")
+    @JoinColumn(name = "ID_EDITORA")
     private Editora editora;
 
     public int getId() {
