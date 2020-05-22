@@ -4,16 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Autores</title>
+
+    <style>
+        table, th, td{
+            border: 1px solid black;
+        }
+    </style>
+
 </head>
 <body>
+    <h1>Cadastro de Autores</h1>
+    <a href="/">Menu</a>
+    <br>
+    <br>
+
     <form th:action="@{/salvarAutor}" method="POST">
-        <input type="text" name="pseudonimo" required/>
-        <input type="text" name="nome" required/>
-        <input type="text" name="po" required/>
+        <label>Pseudônimo: </label><input type="text" name="pseudonimo" required/>
+        <label>Nome: </label><input type="text" name="nome" required/>
+        <label>País de Origem: </label><input type="text" name="po" required/>
         <input type="submit" value="salvar"/>
         
     </form>
+    <br>
+    <br>
     <table>
+        <tr>
+            <th>ID</th>
+            <th>Pseudônimo</th>
+            <th>Nome Completo</th>
+            <th>País de Origem</th>
+        </tr>
         <tr th:each="autor : ${autores}">
             <td th:text="${autor.id}"></td>
             <td th:text="${autor.pseudonimo}"></td>
