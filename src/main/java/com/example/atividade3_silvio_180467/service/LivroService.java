@@ -18,4 +18,7 @@ public class LivroService {
         return lrepository.findAll();
     }
     
+    public void salvar(Livro livro){
+        lrepository.save(livro);
+    }
 }

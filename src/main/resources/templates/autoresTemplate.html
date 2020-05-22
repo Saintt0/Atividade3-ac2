@@ -6,10 +6,10 @@
     <title>Autores</title>
 </head>
 <body>
-    <form th:action="@{/salvar}" method="POST">
-        <input type="text" name="pseudonimo"/>
-        <input type="text" name="nome"/>
-        <input type="text" name="po"/>
+    <form th:action="@{/salvarAutor}" method="POST">
+        <input type="text" name="pseudonimo" required/>
+        <input type="text" name="nome" required/>
+        <input type="text" name="po" required/>
         <input type="submit" value="salvar"/>
         
     </form>

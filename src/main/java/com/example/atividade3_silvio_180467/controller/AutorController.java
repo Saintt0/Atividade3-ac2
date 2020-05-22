@@ -19,16 +19,16 @@ public class AutorController {
     @GetMapping("/autores")
     public ModelAndView getAutores(){
 
-        ModelAndView mv = new ModelAndView("autores");
+        ModelAndView mv = new ModelAndView("autoresTemplate");
         mv.addObject("autores", aservice.getAutores());
         return mv;
         
     }
 
-    @PostMapping("/salvar")
+    @PostMapping("/salvarAutor")
     public String salvarAutor(@ModelAttribute Autor autor){
         aservice.salvar(autor);
-        return "autores";
+        return "redirect:/autores";
     }
     
 }

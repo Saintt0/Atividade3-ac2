@@ -17,5 +17,9 @@ public class EditoraService {
     public List<Editora> getEditoras(){
         return erepository.findAll();
     }
+
+    public void salvar(Editora editora){
+        erepository.save(editora);
+    }
     
 }
