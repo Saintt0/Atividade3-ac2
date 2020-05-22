@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.UniqueConstraint;
 
 @Entity
 public class Livro implements Serializable{
@@ -27,7 +28,12 @@ public class Livro implements Serializable{
     private int nump;//numero de páginas
     
     @ManyToMany
-    @JoinTable(name = "AUTOR_LIVRO", joinColumns = @JoinColumn(name = "LIVRO_ID"), inverseJoinColumns = @JoinColumn(name = "AUTOR_ID"))
+    @JoinTable(
+        name = "AUTOR_LIVRO", 
+        uniqueConstraints =  @UniqueConstraint(columnNames = { "ID_AUTOR", "ID_LIVRO" }),
+        joinColumns = @JoinColumn(name = "ID_LIVRO"),
+        inverseJoinColumns = @JoinColumn(name = "ID_AUTOR")
+    )
     private List<Autor> autores;
 
     @ManyToOne

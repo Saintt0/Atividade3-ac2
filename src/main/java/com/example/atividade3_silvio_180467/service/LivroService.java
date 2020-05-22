@@ -21,4 +21,8 @@ public class LivroService {
     public void salvar(Livro livro){
         lrepository.save(livro);
     }
+
+    public Livro getLivroById(int codigo){
+        return lrepository.findById(codigo).get();
+    }
 }

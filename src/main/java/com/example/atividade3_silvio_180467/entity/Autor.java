@@ -7,7 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.UniqueConstraint;
 
 @Entity
 public class Autor implements Serializable{
@@ -23,7 +26,13 @@ public class Autor implements Serializable{
     private String nome;
     private String po;//País de Origem
 
-    @ManyToMany(mappedBy = "autores")
+    @ManyToMany
+    @JoinTable(
+        name = "AUTOR_LIVRO", 
+        uniqueConstraints =  @UniqueConstraint(columnNames = { "ID_AUTOR", "ID_LIVRO" }),
+        joinColumns = @JoinColumn(name = "ID_AUTOR"),
+        inverseJoinColumns = @JoinColumn(name = "ID_LIVRO")
+    )
     private List<Livro> livros;
 
     public int getId() {

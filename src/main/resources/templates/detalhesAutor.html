@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DetalhesAutor</title>
+</head>
+<body>
+    <form th:action="@{/associarLivroAutor(codigoAutor=${autor.codigo})}" method="POST">
+        <label><b>Livros: </b></label>
+        <select name="id" required>
+            <option value="">Escolha o Livro</option>
+            <option th:each="livro : ${livros}"
+                        th:value="${livro.id}"
+                        th:text="${livro.nome}">
+            </option>
+        </select>
+        <input type="submit" value="Associar Livro"/>
+    </form>
+    
+</body>
+</html>

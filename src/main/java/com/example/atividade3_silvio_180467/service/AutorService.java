@@ -22,4 +22,8 @@ public class AutorService {
         arepository.save(autor);
     }
 
+    public Autor getAutorById(int codigo){
+        return arepository.findById(codigo).get();
+    }
+
 }
