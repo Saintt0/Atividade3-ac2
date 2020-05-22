@@ -35,6 +35,7 @@
             <td th:text="${editora.nome}"></td>
             <td th:text="${editora.sede}"></td>
             <td th:text="${editora.anof}"></td>
+            <td><a th:href="@{'/detalhesEditora/' + ${editora.id}}">Detalhes</a></td>
         </tr>
     </table>
     <br>
