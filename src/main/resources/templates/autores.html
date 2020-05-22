@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autores</title>
+</head>
+<body>
+    <table>
+        <tr th:each="autor : ${autores}">
+            <td th:text="${autor.id}"></td>
+            <td th:text="${autor.nome}"></td>
+            <td th:text="${autor.po}"></td>
+            <td th:text="${autor.pseudonimo}"></td>
+        </tr>
+    </table>
+</body>
+</html>
