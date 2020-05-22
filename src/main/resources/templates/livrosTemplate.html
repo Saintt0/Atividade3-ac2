@@ -45,6 +45,8 @@
             <td th:text="${livro.genero}"></td>
             <td th:text="${livro.nump}"></td>
             <td th:text="${livro.editora.nome}"></td>
+            <td><a th:href="@{'/removerLivro?id=' + ${livro.id}}">Remover</a></td>
+            <td><a th:href="@{'/editarLivro?id=' + ${livro.id}}">Editar</a></td>
         </tr>
     </table>
     <br>

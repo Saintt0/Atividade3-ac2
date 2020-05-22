@@ -70,7 +70,7 @@ public class AutorController {
     }
 
     @GetMapping("/editarAutor")
-    public ModelAndView editarAluno(@RequestParam Integer id){
+    public ModelAndView editarAutor(@RequestParam Integer id){
 
         ModelAndView mv = new ModelAndView("autorEdit");
 

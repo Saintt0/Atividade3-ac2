@@ -25,4 +25,8 @@ public class LivroService {
     public Livro getLivroById(int codigo){
         return lrepository.findById(codigo).get();
     }
+
+    public void remover(Livro livro){
+        lrepository.delete(livro);
+    }
 }
