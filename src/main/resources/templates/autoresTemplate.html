@@ -38,7 +38,7 @@
             <td th:text="${autor.pseudonimo}"></td>
             <td th:text="${autor.nome}"></td>
             <td th:text="${autor.po}"></td>
-            <td> <a th:href="@{'/detalhesAutor' +  ${autor.id}}">Detalhes</a></td>
+            <td> <a th:href="@{'/detalhesAutor/' +  ${autor.id}}">Detalhes</a></td>
         </tr>
     </table>
     <br>

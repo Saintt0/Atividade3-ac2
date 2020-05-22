@@ -1,6 +1,7 @@
 package com.example.atividade3_silvio_180467.controller;
 
 import com.example.atividade3_silvio_180467.entity.Livro;
+import com.example.atividade3_silvio_180467.service.EditoraService;
 import com.example.atividade3_silvio_180467.service.LivroService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,12 +15,17 @@ public class LivroController {
 
     @Autowired
     private LivroService lservice;
+    @Autowired
+    private EditoraService eservice;
 
     @GetMapping("/livros")
     public ModelAndView getLivros(){
 
         ModelAndView mv = new ModelAndView("livrosTemplate");
+        
+        mv.addObject("livro", new Livro());
         mv.addObject("livros", lservice.getLivros());
+        mv.addObject("editoras", eservice.getEditoras());
 
         return mv;
     }

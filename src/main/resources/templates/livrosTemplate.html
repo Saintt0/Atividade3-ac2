@@ -18,6 +18,15 @@
         <lable>Nome: </lable><input type="text" name="nome" required/>
         <label>Gênero: </label><input type="text" name="genero" required/>
         <label>Número de Páginas: </label><input type="number" name="nump" min="1" required/>
+
+        <label>Editora: </label>
+        <select th:field="${livro.editora}" required>
+            <option value="">Selecione a Editora</option>
+            <option th:each="editora : ${editoras}"
+                        th:value="${editora.id}"
+                        th:text="${editora.nome}">        
+            </option>
+        </select>
         <input type="submit" value="Salvar"/>
     </form>
     <br>
@@ -28,12 +37,14 @@
             <th>Nome</th>
             <th>Gênero</th>
             <th>Número de Páginas</th>
+            <th>Editora</th>
         </tr>
         <tr th:each="livro : ${livros}">
             <td th:text="${livro.id}"></td>
             <td th:text="${livro.nome}"></td>
             <td th:text="${livro.genero}"></td>
             <td th:text="${livro.nump}"></td>
+            <td th:text="${livro.editora.nome}"></td>
         </tr>
     </table>
     <br>

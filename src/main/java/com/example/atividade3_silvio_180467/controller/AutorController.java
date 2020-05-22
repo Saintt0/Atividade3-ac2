@@ -52,7 +52,7 @@ public class AutorController {
         autor.getLivros().add(livro);
         aservice.salvar(autor);
 
-        return "redirect:/detalhesAutor/" + codigoAutor;
+        return "redirect:/detalhesAutor" + codigoAutor;
     }
 
 
